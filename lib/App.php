@@ -1,8 +1,7 @@
 <?php
 namespace lib;
 /**
- * Created by PhpStorm.
-<<<<<<< HEAD
+ * Created by PhpStorm
  * User: linweixin 502510773@qq.com
  * Date: 2019/4/2
  * Time: 11:43
