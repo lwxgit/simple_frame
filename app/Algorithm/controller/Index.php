@@ -72,8 +72,8 @@ Class Index{
                 $right_arr[] = $array[$i];
 
         }
-        $left_arr = quick_sort($left_arr);
-        $right_arr = quick_sort($right_arr);
+        $left_arr = $this->quick_sort($left_arr);
+        $right_arr = $this->quick_sort($right_arr);
         return array_merge($left_arr,array($key),$right_arr);
     }
 
@@ -109,8 +109,27 @@ Class Index{
         return $arr;
     }
     public function index(){
+//        echo rand(0,100)."<br />";
+        $a = [];
+        for ($i=0;$i<1000;$i++){
+            $a[] = mt_rand(0,1000);
+        }
+        list($msec, $sec) = explode(' ', microtime());
+        $msectime1 = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
 
-        $re = quick_sort([2,366,54,36]);
+        $re = $this->maopao($a);
+        list($msec, $sec) = explode(' ', microtime());
+        $msectime2 = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
+        echo ($msectime2 - $msectime1)."<br />";
+        $re = $this->quick_sort($a);
+        list($msec, $sec) = explode(' ', microtime());
+        $msectime3 = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
+        echo ($msectime3 - $msectime2)."<br />";
+        $re = $this->insert_sort($a);
+        list($msec, $sec) = explode(' ', microtime());
+        $msectime4 = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
+        echo ($msectime4 - $msectime3)."<br />";
+
         var_dump($re);
     }
 
