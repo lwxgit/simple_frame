@@ -15,4 +15,5 @@ define('CONTROLLER_DIR', 'controller');          //默认方法
 
 // 载入autoload.php
 require 'Loader.php';
+require 'Common.php';
 spl_autoload_register('Loader::autoload'); // 注册自动加载

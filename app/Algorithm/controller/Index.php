@@ -108,29 +108,52 @@ Class Index{
         //返回
         return $arr;
     }
+
+    function select_sort($arr) {
+        //双重循环完成，外层控制轮数，内层控制比较次数
+        $len=count($arr);
+        for($i=0; $i<$len-1; $i++) {
+            //先假设最小的值的位置
+            $p = $i;
+
+            for($j=$i+1; $j<$len; $j++) {
+                //$arr[$p] 是当前已知的最小值
+                if($arr[$p] > $arr[$j]) {
+                    //比较，发现更小的,记录下最小值的位置；并且在下次比较时采用已知的最小值进行比较。
+                    $p = $j;
+                }
+            }
+            //已经确定了当前的最小值的位置，保存到$p中。如果发现最小值的位置与当前假设的位置$i不同，则位置互换即可。
+            if($p != $i) {
+                $tmp = $arr[$p];
+                $arr[$p] = $arr[$i];
+                $arr[$i] = $tmp;
+            }
+        }
+        //返回最终结果
+        return $arr;
+    }
+
+
     public function index(){
-//        echo rand(0,100)."<br />";
+//        性能测试
         $a = [];
         for ($i=0;$i<1000;$i++){
             $a[] = mt_rand(0,1000);
         }
-        list($msec, $sec) = explode(' ', microtime());
-        $msectime1 = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
-
+        $msectime1 = get_msectime();
         $re = $this->maopao($a);
-        list($msec, $sec) = explode(' ', microtime());
-        $msectime2 = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
-        echo ($msectime2 - $msectime1)."<br />";
+        $msectime2 = get_msectime();
+        echo '冒泡排序时间：'.($msectime2 - $msectime1)."ms<br />";
         $re = $this->quick_sort($a);
-        list($msec, $sec) = explode(' ', microtime());
-        $msectime3 = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
-        echo ($msectime3 - $msectime2)."<br />";
+        $msectime3 = get_msectime();
+        echo '快速排序时间：'.($msectime3 - $msectime2)."ms<br />";
         $re = $this->insert_sort($a);
-        list($msec, $sec) = explode(' ', microtime());
-        $msectime4 = (float)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
-        echo ($msectime4 - $msectime3)."<br />";
-
-        var_dump($re);
+        $msectime4 = get_msectime();
+        echo '插入排序时间：'.($msectime4 - $msectime3)."ms<br />";
+        $re = $this->select_sort($a);
+        $msectime5 = get_msectime();
+        echo '选择排序时间：'.($msectime5 - $msectime4)."ms<br />";
     }
 
 }
