@@ -18,7 +18,7 @@ Class Index{
      * @param $arr
      * @return mixed
      */
-    public function maopao($arr)
+    public function bubbling_sort($arr)
     {
 
         $len = count($arr); //数组长度
@@ -109,7 +109,12 @@ Class Index{
         return $arr;
     }
 
-    function select_sort($arr) {
+    /**
+     * 选择排序
+     * @param $arr
+     * @return mixed
+     */
+    public function select_sort($arr) {
         //双重循环完成，外层控制轮数，内层控制比较次数
         $len=count($arr);
         for($i=0; $i<$len-1; $i++) {
@@ -142,7 +147,7 @@ Class Index{
             $a[] = mt_rand(0,1000);
         }
         $msectime1 = get_msectime();
-        $re = $this->maopao($a);
+        $re = $this->bubbling_sort($a);
         $msectime2 = get_msectime();
         echo '冒泡排序时间：'.($msectime2 - $msectime1)."ms<br />";
         $re = $this->quick_sort($a);
