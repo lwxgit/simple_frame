@@ -19,7 +19,7 @@ Class App{
         $m = isset($_GET['m'])?$_GET['m']:MODULE;
         $c = isset($_GET['c'])?$_GET['c']:CONTROLLER;
         $a = isset($_GET['a'])?$_GET['a']:ACTION;
-        $class = DS.APP_DIR.DS.$m.DS.CONTROLLER_DIR.DS.$c;
+        $class = "\\".APP_DIR."\\".$m."\\".CONTROLLER_DIR."\\".$c;
         $obj = new $class();
         $obj->$a();
     }
