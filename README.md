@@ -6,6 +6,7 @@ http://访问/index.php?m=Algorithm&c=Index&a=index
 ~~~
 ### 自写框架入门
 ### 初识自动加载
+#### 参考文献：https://www.cnblogs.com/woider/p/6443854.html
 ### 基础算法
 #### 排序 app\Algorithm\controller
 - 冒泡排序(bubbling_sort)
