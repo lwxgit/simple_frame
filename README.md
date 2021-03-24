@@ -13,4 +13,8 @@ http://访问/index.php?m=Algorithm&c=Index&a=index
 - 快速排序(quick_sort)
 - 插入排序(insert_sort)
 - 选择排序(select_sort)
-### 设计模式
+### 设计模式 app\design\controller
+暂无
+### 设计模式 app\design\controller
+- 链表(linked list)
+- 矩阵(matrix)
